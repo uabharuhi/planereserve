@@ -1,0 +1,18 @@
+sqlite 
+.tables 列出所有table
+.schema tablename 
+.headers on 秀出 header
+.mode column 印得比較整齊
+
+sqlite 是沒有date這個type的但是有會依靠text來表示
+
+sqlite有內建的date函數
+如果是給定的日期參數正確的話可以把一個字串輸出成一個YYYY:MM:DD的字串
+如果錯誤的話不會報錯但是不會輸出一個YYYY:MM:DD的字串
+另外還有datetime和time函數 基本上做的事情一模一樣
+日期不足的地方要補0
+不會考慮到閏年的問題...
+PRAGMA foreign_keys = ON; 這樣才會有效
+用jdbc連接的時候要用這個
+SQLiteConfig sqlconfig = new SQLiteConfig();  
+sqlconfig.enforceForeignKeys(true); 
