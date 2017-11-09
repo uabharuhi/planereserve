@@ -21,8 +21,7 @@ import model.Ticket;;
 
 public class SqliteDataSeed {
 	public static void main(String[] args) throws Exception {
-		//テーブルの削除と作成(SQL)
-		/*
+
 		 SqliteDataSeed seed = new  SqliteDataSeed();
 		 seed.createTable();
 		 seed.insertPlane();
@@ -31,25 +30,7 @@ public class SqliteDataSeed {
 		 seed.getSession().close();
 		 System.out.println("close");
 		
-		Configuration config = new Configuration();
-		config = config.configure();
-		
-		SessionFactory sessionFactory = config.buildSessionFactory();
-		Session session = sessionFactory.openSession();
-		Transaction transaction = session.beginTransaction();
-		session.save(new Hello(Integer.valueOf("1"), "test1"));
-		session.save(new Hello(Integer.valueOf("2"), "test2"));
-		session.save(new Hello(Integer.valueOf("3"), "test3"));
-		transaction.commit();
-		//データの取得(Hibernate)
-		List rows = session.createCriteria(Hello.class).list();
-		for (int i = 0; i < rows.size(); i++) {
-			Hello one = (Hello) rows.get(i);
-			System.out.println("id = " + one.getId());
-			System.out.println("name = " + one.getName());
-		}
-		session.close();
-		*/
+	
 	}
 	
 	
@@ -95,7 +76,7 @@ public class SqliteDataSeed {
 		//session.save(new  PlaneMeta("B",5));
 		transaction.commit();
 
-		//データの取得(Hibernate)
+		//��������(Hibernate)
 		List rows = session.createCriteria(PlaneMeta.class).list();
 		for (int i = 0; i < rows.size(); i++) {
 			PlaneMeta one = (PlaneMeta) rows.get(i);
@@ -156,7 +137,7 @@ public class SqliteDataSeed {
 		
 		
 		
-		//  flight 班次
+		//  flight �甈�
 		
 		stat.executeUpdate("create table flight(id integer primary key AUTOINCREMENT,"
 				+ "plane_id integer not null,"
