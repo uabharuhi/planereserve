@@ -16,32 +16,31 @@ import org.hibernate.criterion.Restrictions;
 import org.sqlite.SQLiteConfig;
 
 import model.Flight;
-import model.PlaneMeta;;
+import model.PlaneMeta;
+import model.Ticket;;
 
 public class SqliteDataSeed {
 	public static void main(String[] args) throws Exception {
 		//テーブルの削除と作成(SQL)
-		
+		/*
 		 SqliteDataSeed seed = new  SqliteDataSeed();
 		 seed.createTable();
 		 seed.insertPlane();
 		 seed.insertFlight();
+		 seed.insertTicket();
 		 seed.getSession().close();
 		 System.out.println("close");
-
-		/*
+		
 		Configuration config = new Configuration();
 		config = config.configure();
 		
 		SessionFactory sessionFactory = config.buildSessionFactory();
 		Session session = sessionFactory.openSession();
-
 		Transaction transaction = session.beginTransaction();
 		session.save(new Hello(Integer.valueOf("1"), "test1"));
 		session.save(new Hello(Integer.valueOf("2"), "test2"));
 		session.save(new Hello(Integer.valueOf("3"), "test3"));
 		transaction.commit();
-
 		//データの取得(Hibernate)
 		List rows = session.createCriteria(Hello.class).list();
 		for (int i = 0; i < rows.size(); i++) {
@@ -53,9 +52,15 @@ public class SqliteDataSeed {
 		*/
 	}
 	
+	
+	
+	
 	private  Configuration config;
 	private SessionFactory sessionFactory;
 	private Session session;
+	
+	
+	
 	
 	
 
@@ -63,6 +68,7 @@ public class SqliteDataSeed {
 		this.config = new Configuration();
 		this.config.addAnnotatedClass(model.PlaneMeta.class);
 		this.config.addAnnotatedClass(model.Flight.class);
+		this.config.addAnnotatedClass(model.Ticket.class);
 		this.config = config.configure();
 		this.sessionFactory = config.buildSessionFactory();
 		this.session =  sessionFactory.openSession();
@@ -99,21 +105,29 @@ public class SqliteDataSeed {
 		}
 	}
 	
-	public void insertFlight() {
+	public void insertTicket() {
+
+
 		Transaction transaction = session.beginTransaction();
+		Flight flight1 = session.get(Flight.class,1);
+		Flight flight3 = session.get(Flight.class,2);
+		session.save(new  Ticket(flight1,"user1"));
+		session.save(new  Ticket(flight3,"user2"));
+		//session.save(new  PlaneMeta("B",5));
+		transaction.commit();
+		
+	}
+	
+	public void insertFlight() {
 		Criteria criteria = session.createCriteria(PlaneMeta.class);
 		criteria.add(Restrictions.eq("id", new Integer(1)));
 		
 		//lock https://codereview.stackexchange.com/questions/86872/hibernate-insert-with-foreign-key
 		
-		//List planes = criteria.list();
-		//PlaneMeta plane = (PlaneMeta)planes.get(0);
-		//Flight flight = new  Flight(1, "D1","D2" , new Date(2017,8,7), new Time(23,0,0)
-		//System.out.println("id = " + plane.getId());
-		//System.out.println("typename = " + plane.getTypename());
-		PlaneMeta plane = session.load(PlaneMeta.class,1);
+		PlaneMeta plane = (PlaneMeta) session.createCriteria(PlaneMeta.class).add(Restrictions.eq("id", 1)).uniqueResult();
 		System.out.println("id = " + plane.getId());
-		//System.out.println("typename = " + plane.getTypename());
+		
+		Transaction transaction = session.beginTransaction();
 		session.save(new  Flight(plane, 1, "D1","D2" , new Date(2017,8,7), new Time(23,0,0)));
 		session.save(new  Flight(session.load(PlaneMeta.class,2), 1, "D1","D2" , new Date(2017,8,7), new Time(23,0,0)));
 		//session.save(new  Flight(session.load(PlaneMeta.class,3), 1, "D1","D2" , new Date(2017,8,7), new Time(23,0,0)));
