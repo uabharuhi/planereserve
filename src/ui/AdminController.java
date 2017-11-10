@@ -16,8 +16,8 @@ public class AdminController {
 	
 	
 	 @FXML
-	 protected void onAddDeleteFlightBtnClick(ActionEvent event) {
-		loadFxml("flightUpdate.fxml");
+	 protected void onAddDeletePlaneBtnClick(ActionEvent event) {
+		loadFxml("listplane.fxml");
 	}
 	 
 	 public void loadFxml (String path) {

@@ -17,6 +17,9 @@ public class  PlaneMeta {
    @Column(name = "max_num_people",nullable=false)
    private int max_num_people;  
    
+   
+   
+   
    public PlaneMeta() {
 	  
    } 
