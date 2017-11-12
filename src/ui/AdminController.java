@@ -17,7 +17,7 @@ public class AdminController {
 	
 	 @FXML
 	 protected void onAddDeletePlaneBtnClick(ActionEvent event) {
-		loadFxml("listplane.fxml");
+		loadFxml("plane/listplane.fxml");
 	}
 	 
 	 public void loadFxml (String path) {
@@ -27,11 +27,8 @@ public class AdminController {
 		    	FXMLLoader loader = new FXMLLoader();
 		        loader.setLocation(AdminController.class.getResource(path));
 				newPane =  loader.load();
-				System.out.println("aasf");
 				rightPane.getChildren().add(newPane);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				System.out.println("qwrwqrwq");
 				e.printStackTrace();
 			}
 

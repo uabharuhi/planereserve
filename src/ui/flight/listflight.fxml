@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="458.0" layoutY="37.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="88.0" text="新增班次" />
+      <Label layoutX="27.0" layoutY="37.0" prefHeight="23.0" prefWidth="88.0" text="起始日期 " />
+      <DatePicker layoutX="101.0" layoutY="37.0" />
+      <Button layoutX="458.0" layoutY="79.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="88.0" text="取消班次" />
+      <Label layoutX="27.0" layoutY="67.0" prefHeight="23.0" prefWidth="88.0" text="結束日期 " />
+      <DatePicker layoutX="101.0" layoutY="67.0" />
+      <Button layoutX="20.0" layoutY="102.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="88.0" text="以日期查詢" />
+      <TableView layoutX="9.0" layoutY="140.0" prefHeight="322.0" prefWidth="628.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

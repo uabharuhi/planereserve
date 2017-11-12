@@ -22,26 +22,7 @@ public class MainController {
 	    @FXML
 	    protected void adminBtnClick(ActionEvent event) throws IOException {
 	    	System.out.println("admin click");
-	    	FXMLLoader loader = new FXMLLoader();
-	        loader.setLocation(Main.class.getResource("adminMain.fxml"));
-	        Parent page =  loader.load();
-
-	        // Create the dialog Stage.
-	        Stage stage = new Stage();
-	        stage.setTitle("Admin");
-	        stage.initModality(Modality.WINDOW_MODAL);
-	        //dialogStage.initOwner(primaryStage);
-	        Scene scene = new Scene(page);
-	        stage.setScene(scene);
-
-	        // Set the person into the controller.
-	        //PersonEditDialogController controller = loader.getController();
-	        //controller.setDialogStage(dialogStage);
-	        //controller.setPerson(person);
-
-	        // Show the dialog and wait until the user closes it
-	        stage.showAndWait();
-	        System.out.println("1234");
+	    	Util.openNewWindow("adminMain.fxml","admin");
 	    }
 	    @FXML
 	    protected void planeBtnClick(ActionEvent event) {

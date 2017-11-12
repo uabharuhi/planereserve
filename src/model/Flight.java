@@ -43,22 +43,18 @@ public class Flight {
 	
 	}
 	
-	public Flight( int price, String departure, String destination, Date date, Time time) {
+	public Flight( int price, String departure, String destination,String str_date, Time time) {
 		
 		this.price = price;
 		this.departure = departure;
 		this.destination = destination;
-		this.date = date;
+		this.date = Date.valueOf(str_date);
 		this.time = time;
 	}
 	
-	public Flight(PlaneMeta plane, int price, String departure, String destination, Date date, Time time) {
+	public Flight(PlaneMeta plane, int price, String departure, String destination, String str_date, Time time) {
+		this(price,departure,destination,str_date,time);
 		this.plane = plane;
-		this.price = price;
-		this.departure = departure;
-		this.destination = destination;
-		this.date = date;
-		this.time = time;
 	}
 
 	public int getId() {

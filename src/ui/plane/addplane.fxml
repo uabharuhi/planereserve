@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.plane.AddPlaneController">
+   <children>
+      <TextField fx:id="planetype_tf" layoutX="85.0" layoutY="33.0" />
+      <Label layoutX="24.0" layoutY="33.0" prefHeight="23.0" prefWidth="37.0" text="機型" />
+      <Label layoutX="24.0" layoutY="69.0" prefHeight="23.0" prefWidth="37.0" />
+      <TextField fx:id="max_num_people_tf" layoutX="85.0" layoutY="69.0" />
+      <Label layoutX="24.0" layoutY="69.0" prefHeight="23.0" prefWidth="37.0" text="載客量" />
+      <Button fx:id="confirm_btn" layoutX="189.0" layoutY="115.0" mnemonicParsing="false" onAction="#confirm" text="確定" />
+   </children>
+</AnchorPane>

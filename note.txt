@@ -16,3 +16,6 @@ PRAGMA foreign_keys = ON; 這樣才會有效
 用jdbc連接的時候要用這個
 SQLiteConfig sqlconfig = new SQLiteConfig();  
 sqlconfig.enforceForeignKeys(true); 
+
+直接用date(year,month,day) 會有問題
+要使用date.valueOf("yyyy-mm-dd")

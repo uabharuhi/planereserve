@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.plane.ListPlaneController">
+   <children>
+      <TableView id="table" fx:id="table" layoutX="14.0" layoutY="60.0" prefHeight="340.0" prefWidth="449.0">
+        <columns>
+          <TableColumn id="id_col" fx:id="id_col" prefWidth="75.0" text="id" />
+          <TableColumn id="maxnum_col" fx:id="maxnum_col" prefWidth="99.0" text="載客量" />
+            <TableColumn id="type_col" fx:id="type_col" prefWidth="270.0" text="機體型號" />
+        </columns>
+      </TableView>
+      <Button id="add_btn" fx:id="add_btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onAddBtnClick" text="新增" />
+      <Button id="del_btn" fx:id="del_btn" layoutX="75.0" layoutY="14.0" mnemonicParsing="false" onAction="#onDelBtnClick" text="刪除" />
+      <Button id="del_btn" fx:id="refresh_btn" layoutX="134.0" layoutY="14.0" mnemonicParsing="false" onAction="#onRefreshBtnClick" text="刷新" />
+   </children>
+</AnchorPane>
