@@ -20,6 +20,10 @@ public class  PlaneMetaUI {
 	  max_num_people = new SimpleStringProperty(String.format("%d",plane.getMax_num_people()));
    }
 
+   public PlaneMeta getPlane() {
+	   return plane;
+   }
+   
 	public StringProperty idProperty() {
 		return id;
 	}

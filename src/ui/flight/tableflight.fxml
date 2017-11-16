@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TableView fx:id="table" prefHeight="428.0" prefWidth="667.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.flight.TableController">
+   <columns>
+      <TableColumn fx:id="flight_id" prefWidth="75.0" text="id" />
+      <TableColumn fx:id="plane_id" prefWidth="75.0" text="航機id" />
+      <TableColumn fx:id="price" prefWidth="88.0" text="價票" />
+      <TableColumn fx:id="num_state" prefWidth="112.0" text="人數" />
+      <TableColumn fx:id="date" prefWidth="107.0" text="日期" />
+      <TableColumn fx:id="departure" minWidth="6.0" prefWidth="109.0" text="出發地" />
+      <TableColumn fx:id="destination" prefWidth="100.0" text="目的地" />
+      <TableColumn fx:id="time" prefWidth="75.0" text="時間" />
+   </columns>
+</TableView>

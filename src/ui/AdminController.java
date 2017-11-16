@@ -20,6 +20,17 @@ public class AdminController {
 		loadFxml("plane/listplane.fxml");
 	}
 	 
+	 @FXML
+	 protected void onPlaneInfotBtnClick(ActionEvent event) {
+		 System.out.println("plane info");
+		 //loadFxml("plane/planeinfo.fxml");
+	 } 
+	 
+	 @FXML
+	 protected void onAddDeleteFlightBtnClick(ActionEvent event) {
+		 System.out.println("12345");
+		loadFxml("flight/listflight.fxml");
+	 } 
 	 public void loadFxml (String path) {
 		    // load new pane
 		    Pane newPane;
@@ -27,6 +38,8 @@ public class AdminController {
 		    	FXMLLoader loader = new FXMLLoader();
 		        loader.setLocation(AdminController.class.getResource(path));
 				newPane =  loader.load();
+		
+				rightPane.getChildren().clear();
 				rightPane.getChildren().add(newPane);
 			} catch (Exception e) {
 				e.printStackTrace();

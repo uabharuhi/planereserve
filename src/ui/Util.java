@@ -1,5 +1,11 @@
 package ui;
 
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.List;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -23,5 +29,35 @@ public class Util {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+	}
+	
+	public static List<Date> getDaysBetweenDates(Date startdate, Date enddate)
+	{
+	    List<Date> dates = new ArrayList<Date>();
+	    Calendar calendar = new GregorianCalendar();
+	    calendar.setTime(startdate);
+
+	    while (calendar.getTime().before(enddate))
+	    {
+	        Date result =  new Date(calendar.getTimeInMillis());
+	        dates.add(result);
+	        calendar.add(Calendar.DATE, 1);
+	    }
+	    return dates;
+	}
+	
+	public static List<Date> getDaysBetweenDates(Date startdate, Date enddate,int inc_date)
+	{
+	    List<Date> dates = new ArrayList<Date>();
+	    Calendar calendar = new GregorianCalendar();
+	    calendar.setTime(startdate);
+
+	    while (calendar.getTime().before(enddate))
+	    {
+	        Date result =  new Date(calendar.getTimeInMillis());
+	        dates.add(result);
+	        calendar.add(Calendar.DATE, inc_date);
+	    }
+	    return dates;
 	}
 }

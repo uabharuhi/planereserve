@@ -13,19 +13,18 @@ import javafx.stage.Stage;
 
 public class MainController {
 	
-	   
-	 
 	    @FXML
 	    protected void userBtnClick(ActionEvent event) {
 	    	System.out.println("user click");
+	    	Util.openNewWindow("user/input_username.fxml","username");
 	    }
 	    @FXML
 	    protected void adminBtnClick(ActionEvent event) throws IOException {
 	    	System.out.println("admin click");
-	    	Util.openNewWindow("adminMain.fxml","admin");
+	    	Util.openNewWindow("adminmain.fxml","admin");
 	    }
 	    @FXML
 	    protected void planeBtnClick(ActionEvent event) {
-	    	System.out.println("plane click");
+	    	Util.openNewWindow("planesearch.fxml","admin");
 	    }
 }

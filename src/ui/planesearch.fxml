@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="619.0" prefWidth="666.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.PlaneSearchController">
+   <children>
+      <Label layoutX="248.0" layoutY="14.0" prefHeight="35.0" prefWidth="196.0" text="查詢條件(可空白)" textFill="#265ba4">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Separator layoutX="-2.0" layoutY="175.0" prefHeight="35.0" prefWidth="666.0" />
+      <Button layoutX="480.0" layoutY="145.0" mnemonicParsing="false" onAction="#onQueryClick" prefHeight="23.0" prefWidth="68.0" text="查詢" />
+      <Label layoutX="22.0" layoutY="74.0" prefHeight="15.0" prefWidth="61.0" text="日期" />
+      <DatePicker fx:id="datePicker" layoutX="91.0" layoutY="70.0" />
+      <Label layoutX="22.0" layoutY="113.0" prefHeight="15.0" prefWidth="61.0" text="出發地" />
+      <Label layoutX="22.0" layoutY="149.0" prefHeight="15.0" prefWidth="61.0" text="目的地" />
+      <TextField fx:id="depature" layoutX="91.0" layoutY="109.0" />
+      <TextField fx:id="destination" layoutX="91.0" layoutY="145.0" />
+      <Pane layoutY="192.0" prefHeight="432.0" prefWidth="666.0">
+         <children>
+            <fx:include fx:id="table" source="flight/tableflight.fxml" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -1,5 +1,17 @@
 package model;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.*;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+
 @Entity
 @Table(name = "planemeta")
 public class  PlaneMeta {
@@ -17,6 +29,10 @@ public class  PlaneMeta {
    @Column(name = "max_num_people",nullable=false)
    private int max_num_people;  
    
+   @OneToMany(fetch = FetchType.EAGER,mappedBy="plane",cascade= {CascadeType.PERSIST})
+   private List<Flight> flights = new ArrayList<>();
+   //private List<Flight> flights = new ArrayList<Flight>(); @JoinColumn(name="plane_id",referencedColumnName="id")
+ //fetch = FetchType.EAGER,cascade=CascadeType.ALL)//cascade = CascadeType.ALL, mappedBy="airline"
    
    
    
@@ -24,6 +40,12 @@ public class  PlaneMeta {
 	  
    } 
    
+   
+   
+
+
+
+
    public PlaneMeta(int id,String typename,int max_num_people) {
 	   this.id = id;
 	   this.typename = typename;
@@ -36,6 +58,16 @@ public class  PlaneMeta {
 	   this.max_num_people = max_num_people;
    }
    
+   public Collection<Flight> getFlights(){
+	   //System.out.println("???");
+	   //System.out.println(flights.size());
+	   return this.flights;
+   }
+   /*
+   public void setFlights(List<Flight> flights) {
+	   this.flights = flights;
+   }
+   */
    
    public int getId() {
 		return id;

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView fx:id="table" layoutX="56.0" layoutY="117.0" prefHeight="322.0" prefWidth="499.0">
+         <columns>
+            <TableColumn fx:id="flight_id" prefWidth="75.0" text="id" />
+            <TableColumn fx:id="date" prefWidth="107.0" text="日期" />
+            <TableColumn fx:id="departure" minWidth="6.0" prefWidth="86.0" text="出發地" />
+            <TableColumn fx:id="destination" prefWidth="97.0" text="目的地" />
+            <TableColumn fx:id="time" prefWidth="123.0" text="時間" />
+         </columns>
+      </TableView>
+      <Label layoutX="56.0" layoutY="90.0" prefHeight="15.0" prefWidth="156.0" text="此飛機的航班" />
+      <Label layoutX="56.0" layoutY="25.0" prefHeight="15.0" prefWidth="35.0" text="id">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="maxpeople_lb" layoutX="315.0" layoutY="25.0" prefHeight="21.0" prefWidth="50.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="247.0" layoutY="25.0" prefHeight="21.0" prefWidth="56.0" text="載客量">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="445.0" layoutY="22.0" prefHeight="21.0" prefWidth="56.0" text="型號">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="type_lb" layoutX="501.0" layoutY="22.0" prefHeight="21.0" prefWidth="70.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="planeid_lb" layoutX="122.0" layoutY="25.0" prefHeight="21.0" prefWidth="50.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

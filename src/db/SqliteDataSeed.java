@@ -15,6 +15,8 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
 import org.sqlite.SQLiteConfig;
 
+import com.sun.xml.internal.ws.policy.spi.AssertionCreationException;
+
 import model.Flight;
 import model.PlaneMeta;
 import model.Ticket;
@@ -24,11 +26,13 @@ public class SqliteDataSeed {
 	public static void main(String[] args) throws Exception {
 
 		 SqliteDataSeed seed = new  SqliteDataSeed();
-		 seed.createTable();
-		 seed.insertPlane();
-		 seed.insertFlight();
+		 //seed.createTable();
+		 //seed.insertPlane();
+		 //seed.insertFlight();
 		 seed.insertTicket();
+		 
 		 seed.showFlight();
+		 seed.showPlane();
 		 seed.getSession().close();
 		 System.out.println("close");
 		
@@ -57,9 +61,29 @@ public class SqliteDataSeed {
 		this.session =  sessionFactory.openSession();
 		
 	}
-	
+	public void showPlane() {
+		//session.
+		Repository<PlaneMeta> repo = new  Repository<>(PlaneMeta.class,this.session);
+		List<PlaneMeta> list = repo.selectall();
+		for(PlaneMeta p : list) {
+			session.refresh(p); //-->要refresh
+			System.out.println(p.getId());
+			System.out.println(p.getTypename());
+			System.out.println("flights");
+			//assert p.getFlights() !=null;
+			for(Flight f : p.getFlights()) {
+				System.out.println("www");
+				System.out.println(f.getId());
+				System.out.println(f.getPlane().getId());
+				System.out.println("QQQ");
+			}
+			
+		}
+		
+	}
 	
 	public void showFlight() {
+		
 		//check date
 		Repository<Flight> repo = new  Repository<>(Flight.class,this.session);
 		List<Flight> list = repo.selectall();
@@ -68,6 +92,8 @@ public class SqliteDataSeed {
 			System.out.println(f.getDeparture());
 			System.out.println(f.getDate());
 			System.out.println(f.getTime());
+			System.out.println(f.getPlane().getId());
+			System.out.println(f.getPlane().getTypename());
 		}
 	}
 	

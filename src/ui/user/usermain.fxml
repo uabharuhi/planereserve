@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="403.0" prefWidth="553.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <Label layoutX="30.0" layoutY="54.0" prefHeight="24.0" prefWidth="44.0" text="訂票">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="91.0" text="班次id" />
+      <TextField fx:id="planeid_tf" layoutX="98.0" layoutY="87.0" prefHeight="23.0" prefWidth="79.0" />
+      <Button fx:id="bookTicketButton" layoutX="207.0" layoutY="87.0" mnemonicParsing="false" onAction="#onTicketButtonClick" text="確認" />
+      <Label layoutX="27.0" layoutY="133.0" prefHeight="25.0" prefWidth="65.0" text="我的票">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table" layoutY="172.0" prefHeight="232.0" prefWidth="553.0">
+        <columns>
+          <TableColumn fx:id="ticketid" prefWidth="75.0" text="id" />
+          <TableColumn fx:id="plane_id_col" prefWidth="75.0" text="飛機id" />
+            <TableColumn fx:id="passegernum" prefWidth="75.0" text="乘客人數" />
+            <TableColumn fx:id="date" prefWidth="75.0" text="日期" />
+            <TableColumn fx:id="time" prefWidth="75.0" text="時間" />
+            <TableColumn fx:id="departure" prefWidth="91.0" text="出發地" />
+            <TableColumn fx:id="destination" prefWidth="86.0" text="目的地" />
+        </columns>
+      </TableView>
+      <Label fx:id="username_lb" layoutX="30.0" layoutY="21.0" prefHeight="25.0" prefWidth="124.0" text="username">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

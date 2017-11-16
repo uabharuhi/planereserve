@@ -9,6 +9,9 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.query.Query;
 
+import com.sun.swing.internal.plaf.metal.resources.metal_zh_TW;
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.Loader;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,13 +21,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import model.PlaneMeta;
 import ui.Main;
 import ui.Repository;
@@ -77,6 +83,7 @@ public class ListPlaneController {
 	}
 	
 	public void refresh_table(List<PlaneMeta> list) {
+		
 		planeData.clear();
 		for(PlaneMeta plane:list) {
 			System.out.println(plane.getId());
@@ -84,6 +91,34 @@ public class ListPlaneController {
 		}
 		assert table!=null;
 		table.setItems(planeData);
+		table.setRowFactory(tv->{
+			TableRow<PlaneMetaUI> row = new TableRow<>();
+				row.setOnMouseClicked(event->{
+					if (event.getClickCount() >0 && (! row.isEmpty()) ) {
+						FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("planeinfo.fxml"));
+						PlaneInfoController controller = new PlaneInfoController();
+						fxmlLoader.setController( controller);
+						Parent root=null;
+						try {
+							root = (Parent)fxmlLoader.load();						
+							PlaneMeta plane = row.getItem().getPlane();
+							assert plane!=null;
+							controller.setPlane(plane);
+							controller.init();
+							Scene scene = new Scene(root);
+							Stage stage  = new Stage();
+							stage.setScene(scene);   
+							stage.show();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}    
+						
+					}
+					
+				}
+			);
+			return row;
+		});
 		id_col.setCellValueFactory(d->d.getValue().idProperty());
 		type_col.setCellValueFactory(d->d.getValue().typenameProperty());
 		maxnum_col.setCellValueFactory(d->d.getValue().max_num_peopleProperty());

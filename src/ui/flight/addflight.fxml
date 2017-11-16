@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.flight.AddFlightController">
+   <children>
+      <Label layoutX="27.0" layoutY="30.0" prefHeight="23.0" prefWidth="58.0" text="飛機id" />
+      <TextField fx:id="planeid_tf" layoutX="139.0" layoutY="30.0" prefHeight="23.0" prefWidth="58.0" />
+      <Label layoutX="27.0" layoutY="64.0" prefHeight="23.0" prefWidth="58.0" text="起始日期" />
+      <DatePicker fx:id="start_date" layoutX="139.0" layoutY="64.0" />
+      <Label layoutX="27.0" layoutY="97.0" prefHeight="23.0" prefWidth="94.0" text="結束日期(不包含)" />
+      <DatePicker fx:id="end_date" layoutX="139.0" layoutY="97.0" />
+      <Label layoutX="27.0" layoutY="138.0" text="每日起飛時間" />
+      <TextField fx:id="time_tf" layoutX="144.0" layoutY="134.0" prefHeight="23.0" prefWidth="106.0" text="輸入0-23的整數" />
+      <Label layoutX="30.0" layoutY="178.0" text="班機頻率(一班/時間)" />
+      <ChoiceBox fx:id="freq_choice" layoutX="158.0" layoutY="174.0" prefWidth="150.0" />
+      <Label layoutX="293.0" layoutY="166.0" />
+      <Button fx:id="confirm_btn" layoutX="27.0" layoutY="220.0" mnemonicParsing="false" onAction="#onConfirmClick" text="確認" />
+      <Label fx:id="res_lb" layoutX="133.0" layoutY="212.0" prefHeight="31.0" prefWidth="376.0" textFill="#dd1919" />
+      <Label layoutX="328.0" layoutY="64.0" prefHeight="23.0" prefWidth="58.0" text="出發地" />
+      <TextField fx:id="dep_tf" layoutX="409.0" layoutY="64.0" prefHeight="23.0" prefWidth="117.0" />
+      <Label layoutX="328.0" layoutY="97.0" prefHeight="23.0" prefWidth="58.0" text="目的地" />
+      <TextField fx:id="des_tf" layoutX="409.0" layoutY="97.0" prefHeight="23.0" prefWidth="117.0" />
+      <Label layoutX="328.0" layoutY="30.0" prefHeight="23.0" prefWidth="58.0" text="價格" />
+      <TextField fx:id="price_tf" layoutX="409.0" layoutY="30.0" prefHeight="23.0" prefWidth="117.0" />
+   </children>
+</AnchorPane>

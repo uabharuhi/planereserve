@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="104.0" prefWidth="402.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.user.InputUsernameController">
+   <children>
+      <Label layoutX="29.0" layoutY="25.0" prefHeight="37.0" prefWidth="63.0" text="使用者名稱" />
+      <TextField fx:id="username_tf" layoutX="121.0" layoutY="32.0" onAction="#onConfirmClick" />
+      <Button fx:id="confirm_btn" layoutX="291.0" layoutY="32.0" mnemonicParsing="false" onAction="#onConfirmClick" text="確定" />
+   </children>
+</AnchorPane>

@@ -3,6 +3,9 @@ package model;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,10 +19,12 @@ public class Flight {
 	private int id;
 
 	
-	//@ManyToOne(targetEntity = PlaneMeta.class,cascade = CascadeType.ALL)
-	@ManyToOne(targetEntity = PlaneMeta.class)
+	
+	@ManyToOne(targetEntity = PlaneMeta.class,cascade = {CascadeType.PERSIST},fetch = FetchType.EAGER)
 	private PlaneMeta plane;
 	
+	@OneToMany(targetEntity = Ticket.class,fetch = FetchType.EAGER,mappedBy="flight",cascade= {CascadeType.PERSIST})
+	private List<Ticket> tickets = new ArrayList<>();
 	
 	//@Column(name = "plane_id",nullable=false)
 	//private int plane_id; 
@@ -43,6 +48,11 @@ public class Flight {
 	
 	}
 	
+	public List<Ticket> getTickets(){
+		return tickets;
+	}
+	
+	
 	public Flight( int price, String departure, String destination,String str_date, Time time) {
 		
 		this.price = price;
@@ -64,15 +74,13 @@ public class Flight {
 	public void setId(int id) {
 		this.id = id;
 	}
-	/*
-	public int getPlane_id() {
-		return plane_id;
+	
+	public PlaneMeta getPlane() {
+		return plane;
 	}
 
-	public void setPlane_id(int plane_id) {
-		this.plane_id = plane_id;
-	}
-	*/
+	
+	
 
 	public int getPrice() {
 		return price;
